@@ -1,10 +1,13 @@
 /*
 ESTRUTURA DE DADOS I [Turma 03O11]
 
-Nome: Caio Sampaio Oliveira, TIA: 32195621.
-Nome: Marcello Gonzatto Birkan, TIA: 42020034.
+Atividade de Aplica√ß√£o 2 - Introdu√ß√£o a Data Science com Estruturas de Dados I.
 
-Atividade Lista Duplamente Encadeada Circular e Ordenada - 15/05/22
+Nome: Caio Sampaio Oliveira, TIA: 32195621.
+Nome: Marcello Gonzatto Birkan. TIA: 42020034.
+
+Refer√™ncias Bibliogr√°ficas:
+
 */
 
 #include <iostream>
@@ -12,13 +15,13 @@ Atividade Lista Duplamente Encadeada Circular e Ordenada - 15/05/22
 #include "LDL.h"
 
 // Construtor vazio
-// inicia o cabeÁa da lista como null
+// inicia o cabeÔøΩa da lista como null
 LDL::LDL(){
 	this->cabeca = nullptr;
 	this->qtde = 0;
 }
 
-bool LDL::isEmpty() { // Verifica se lDL est· vazia
+bool LDL::isEmpty() { // Verifica se lDL estÔøΩ vazia
 	if (this->cabeca == nullptr) {
 		return true; 
 	} else {
@@ -35,7 +38,7 @@ bool LDL::isEmptyLista(No *cabeca) {
 }
 
 
-bool LDL::isFull(){ // verifica se alista est· cheia
+bool LDL::isFull(){ // verifica se alista estÔøΩ cheia
 	No *aux = new No();
 	
 	if (aux == nullptr) return true;
@@ -86,24 +89,24 @@ bool LDL::insereOrdemCrescente(int chave, Elemento dado){
 	
 	if (isFull()) return false;
 
-	// se lista vazia, insere o nÛ no ponteiro cabeÁa
-	// e faz o nÛ apontar para ele mesmo
+	// se lista vazia, insere o nÔøΩ no ponteiro cabeÔøΩa
+	// e faz o nÔøΩ apontar para ele mesmo
 	if (cabeca == nullptr) {
 		this->cabeca = novoNo;
 		novoNo->setProx(novoNo);
 		novoNo->setAnt(novoNo);
 	} else { 
-	    // Caso contr·rio, procura posiÁ„o de inserÁ„o
+	    // Caso contrÔøΩrio, procura posiÔøΩo de inserÔøΩo
 	    // na ordem crescente de valores
 		No *pAnda = this->cabeca, *pAnt = nullptr;
 		while (pAnda->getProx() != cabeca && pAnda->getChave() < chave){
 				pAnt = pAnda;
 				pAnda = pAnda->getProx();
 		}	
-		// Se n„o andou na lista e a chave que pAnda aponta
-	    // … maior que a chave a ser inserida, significa que a chave
-		// a ser inserida antes do cabeÁa
-		// e cabeÁa precisa ser redefinido
+		// Se nÔøΩo andou na lista e a chave que pAnda aponta
+	    // ÔøΩ maior que a chave a ser inserida, significa que a chave
+		// a ser inserida antes do cabeÔøΩa
+		// e cabeÔøΩa precisa ser redefinido
 		if (pAnt == nullptr && pAnda->getChave() > chave){
 			novoNo->setAnt(this->cabeca->getAnt());
 			this->cabeca->getAnt()->setProx(novoNo);
@@ -113,7 +116,7 @@ bool LDL::insereOrdemCrescente(int chave, Elemento dado){
 		} else {
 			// Caso pAnda tenha caminhado na lista e
 			// a chave que o pAnda aponta maior do que a chave a ser inserido
-			// insere o nÛ depois do ponteiro anterior pAnt
+			// insere o nÔøΩ depois do ponteiro anterior pAnt
 		 	if (pAnda->getChave() > chave && pAnt != nullptr) {	 
 				pAnt->getProx()->setAnt(novoNo);
 				novoNo->setProx(pAnda);

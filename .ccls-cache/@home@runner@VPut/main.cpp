@@ -8,9 +8,6 @@ Nome: Marcello Gonzatto Birkan. TIA: 42020034.
 
 Referências Bibliográficas:
 
-SZWARCFITER, J.L.; MARKENZON, L. Estruturas de Dados e seus Algoritmos, 3ª Ed. Rio de Janeiro: LTC, 2010.
-
-IME USP. Expressões Infixas, Prefixas and Posfixas. Disponível em: <https://panda.ime.usp.br/panda/static/pythonds_pt/03-EDBasicos/09-ExpressoesInfixaPrefixaPosfixa.html>. Acesso em: 09 de março de 2022. São Paulo: IME USP, 2022. Web Site.
 */
 
 #include <iostream>
@@ -22,7 +19,7 @@ IME USP. Expressões Infixas, Prefixas and Posfixas. Disponível em: <https://pa
 
 using namespace std;
 
-int main() {
+int main(){
   string fname = "df_covid.csv";
  
 	vector<vector<string>> content;
