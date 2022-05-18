@@ -5,6 +5,9 @@ Atividade de Aplicação 2 - Introdução a Data Science com Estruturas de Dados
 
 Nome: Caio Sampaio Oliveira, TIA: 32195621.
 Nome: Marcello Gonzatto Birkan. TIA: 42020034.
+Nome: . TIA: .
+Nome: . TIA: .
+Nome: . TIA: .
 
 Referências Bibliográficas:
 
