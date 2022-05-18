@@ -39,7 +39,6 @@ class Paciente{
 		Paciente(int id, int sexo, int tipo_paciente, int intubado,  int diabetes, int asma, int cardiovascular, int obesidade, int fumante, int teste_covid, int icu, int obito){
       this -> id = id;
       this -> sexo = sexo;
-      this -> tipo_paciente = tipo_paciente;
       this -> intubado = intubado;
       this -> diabetes = diabetes;
       this -> asma = asma;

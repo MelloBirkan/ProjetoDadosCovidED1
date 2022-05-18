@@ -30,6 +30,7 @@ int main(){
 	string line, word;
  
 	fstream file (fname, ios::in);
+  
 	if(file.is_open())
 	{
 		while(getline(file, line))
