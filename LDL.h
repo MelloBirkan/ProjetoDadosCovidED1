@@ -33,8 +33,8 @@ class LDL{
     bool isEmptyLista(No *cabeca);	
 		bool isFull();
 		bool remove(int chave);
-    bool atualiza(int chave, Elemento dado);
-		bool insereOrdemCrescente(int chave, Elemento dado);
+    bool atualiza(int chave, Elemento *dado);
+		bool insereOrdemCrescente(int chave, Elemento *dado);
 		void mostraOrdemCrescente();
 		void mostraOrdemDecrescente();
 		No *busca(int chave);

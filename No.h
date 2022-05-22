@@ -27,22 +27,22 @@ typedef Paciente Elemento;
 class No {
 	private:
 		int chave;
-		Elemento dado;
+		Elemento *dado;
 		No *ant, *prox;
 	public:
 		No() {}
-		No(int chave, Elemento dado, No *ant, No *prox){
+		No(int chave, Elemento *dado, No *ant, No *prox){
 			this->chave = chave;
 			this->dado = dado;
 			this->ant = ant;
 			this->prox = prox;
 		};
 		~No(){};
-		Elemento getDado() { return dado;};
+		Elemento getDado() { return *dado;};
 		No *getAnt(){ return ant;};
 		No *getProx(){ return prox;};
 		int getChave(){ return chave; };
-		void setDado(Elemento dado) { this->dado = dado;};
+		void setDado(Elemento *dado) { this->dado = dado;};
 		void setChave(int chave){ this->chave = chave; };
 		void setAnt(No *ant){ this->ant = ant; };
 		void setProx(No *prox){ this->prox = prox; };		

@@ -60,10 +60,12 @@ void LDL::mostraOrdemCrescente(){
 		cout << "Lista: [ ";
 		No *pAnda = this->cabeca;
 		while (pAnda->getProx() != this->cabeca){
-			cout << pAnda->getChave() << ", " << pAnda->getDado() << " | ";
+			//cout << pAnda->getChave() << ", " << pAnda->getDado() << " | ";
+      cout << pAnda->getChave() << " | ";
 			pAnda= pAnda->getProx();
 		}
-		cout << pAnda->getChave() << ", " << pAnda->getDado() << " ]";
+		//cout << pAnda->getChave() << ", " << pAnda->getDado() << " ]";
+    cout << pAnda->getChave() <<  " ]";
 	}
 }
 
@@ -78,15 +80,17 @@ void LDL::mostraOrdemDecrescente(){
 		No *pAnda = this->cabeca;
 		while (pAnda->getAnt() != this->cabeca){
 			pAnda= pAnda->getAnt();
-			cout << pAnda->getChave() << ", " << pAnda->getDado() << " | ";
+			//cout << pAnda->getChave() << ", " << pAnda->getDado() << " | ";
+      cout << pAnda->getChave() << ", " << " | ";
 		}
-		cout << pAnda->getAnt()->getChave() << ", " << pAnda->getAnt()->getDado() << "]";
+		//cout << pAnda->getAnt()->getChave() << ", " << pAnda->getAnt()->getDado() << "]";
+    cout << pAnda->getAnt()->getChave() << "]";
 	}
 }
 
 // Insere um novo elemento na LDL na ordem
 // crescente
-bool LDL::insereOrdemCrescente(int chave, Elemento dado){
+bool LDL::insereOrdemCrescente(int chave, Elemento *dado){
 	// Cria um novo no
 	No *novoNo = new No(chave, dado, nullptr, nullptr);
 	
@@ -153,7 +157,7 @@ No* LDL::busca(int chave) {
     } 
 }
 
-bool LDL::atualiza(int chave, Elemento dado) {
+bool LDL::atualiza(int chave, Elemento *dado) {
   if (isEmpty()) {
     return false;
   } else {
