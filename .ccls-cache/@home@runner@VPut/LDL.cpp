@@ -84,15 +84,22 @@ void LDL::mostraOrdemDecrescente(){
 	// em ordem decrescente
 	if (cabeca == nullptr) cout << "Lista vazia!" << endl;
 	else{
+    
 		cout << "Lista: [ ";
+    
 		No *pAnda = this->cabeca;
+    Paciente paciente;
+    
 		while (pAnda->getAnt() != this->cabeca){
 			pAnda= pAnda->getAnt();
-			//cout << pAnda->getChave() << ", " << pAnda->getDado() << " | ";
-      cout << pAnda->getChave() << ", " << " | ";
+      paciente = pAnda->getDado();
+      
+			cout << "Chave: " << pAnda->getChave() << ", ID do Paciente: " << paciente.getId() << " | ";
 		}
-		//cout << pAnda->getAnt()->getChave() << ", " << pAnda->getAnt()->getDado() << "]";
-    cout << pAnda->getAnt()->getChave() << "]";
+    
+    paciente = pAnda->getAnt()->getDado();
+    
+		cout << "Chave: " << pAnda->getAnt()->getChave() << ", ID do Paciente: " << paciente.getId() << "]";
 	}
 }
 
