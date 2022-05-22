@@ -4,10 +4,10 @@ ESTRUTURA DE DADOS I [Turma 03O11]
 Atividade de Aplicação 2 - Introdução a Data Science com Estruturas de Dados I.
 
 Nome: Caio Sampaio Oliveira, TIA: 32195621.
+Nome: Gabriel Montes Chagas. TIA: 32162243.
+Nome: Guilherme Picoli Rodrigues. TIA: 32147317.
+Nome: Leonardo Henrique de Oliveira Matos. TIA: 32139561.
 Nome: Marcello Gonzatto Birkan. TIA: 42020034.
-Nome: . TIA: .
-Nome: . TIA: .
-Nome: . TIA: .
 
 Referências Bibliográficas:
 
@@ -33,8 +33,8 @@ class LDL{
     bool isEmptyLista(No *cabeca);	
 		bool isFull();
 		bool remove(int chave);
-    bool atualiza(int chave, Elemento *dado);
-		bool insereOrdemCrescente(int chave, Elemento *dado);
+    bool atualiza(int chave, Paciente *dado);
+		bool insereOrdemCrescente(int chave, Paciente *dado);
 		void mostraOrdemCrescente();
 		void mostraOrdemDecrescente();
 		No *busca(int chave);

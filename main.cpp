@@ -4,10 +4,10 @@ ESTRUTURA DE DADOS I [Turma 03O11]
 Atividade de Aplicação 2 - Introdução a Data Science com Estruturas de Dados I.
 
 Nome: Caio Sampaio Oliveira, TIA: 32195621.
-Nome: Marcello Gonzatto Birkan. TIA: 42020034.
-Nome: Guilherme Picoli Rodrigues. TIA: 32147317.
 Nome: Gabriel Montes Chagas. TIA: 32162243.
+Nome: Guilherme Picoli Rodrigues. TIA: 32147317.
 Nome: Leonardo Henrique de Oliveira Matos. TIA: 32139561.
+Nome: Marcello Gonzatto Birkan. TIA: 42020034.
 
 Referências Bibliográficas:
 
@@ -28,6 +28,8 @@ void lerDados(LDL *lista){
 	fstream file (fname, ios::in);
   
 	if(file.is_open()){
+    cout << "\nLendo os dados. Por favor, aguarde...\n";
+    
 		while(getline(file, line)){
       int dadosPaciente[1][12], i = 0;
 			stringstream str(line);
@@ -48,12 +50,10 @@ void lerDados(LDL *lista){
 
       lista -> insereOrdemCrescente(dadosPaciente[0][0], novoPaciente);
 		}
-    
 	}
 	else{
-    cout<<"Could not open the file\n";
+    cout << "\n*** ERRO AO LER OS DADOS! Por favor, verifique o arquivo de leitura ***\n";
   }
-		
  
 	/*for(int i=0;i<content.size();i++)
 	{
@@ -72,6 +72,7 @@ int main(){
   
   lerDados(lista);
 
+  //Testando a se a lista está correta
   lista -> mostraOrdemCrescente();
 
   // Faz uma pausa antes de finalizar o programa

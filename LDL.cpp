@@ -4,10 +4,10 @@ ESTRUTURA DE DADOS I [Turma 03O11]
 Atividade de Aplicação 2 - Introdução a Data Science com Estruturas de Dados I.
 
 Nome: Caio Sampaio Oliveira, TIA: 32195621.
+Nome: Gabriel Montes Chagas. TIA: 32162243.
+Nome: Guilherme Picoli Rodrigues. TIA: 32147317.
+Nome: Leonardo Henrique de Oliveira Matos. TIA: 32139561.
 Nome: Marcello Gonzatto Birkan. TIA: 42020034.
-Nome: . TIA: .
-Nome: . TIA: .
-Nome: . TIA: .
 
 Referências Bibliográficas:
 
@@ -58,15 +58,22 @@ void LDL::mostraOrdemCrescente(){
 	if (cabeca == nullptr) cout << "Lista vazia!" << endl;
 	else{
 		cout << "Lista: [ ";
+    
 		No *pAnda = this->cabeca;
-    //Paciente *paciente = pAnda->getDado();
+    Paciente paciente;
+    
 		while (pAnda->getProx() != this->cabeca){
-			//cout << pAnda->getChave() << ", " << pAnda->getDado() << " | ";
-      cout << pAnda->getChave() << " | ";
+      
+      paciente = pAnda->getDado();
+      
+			cout << "Chave: " << pAnda->getChave() << ", ID do Paciente: " << paciente.getId() << " | ";
+      
 			pAnda= pAnda->getProx();
 		}
-		//cout << pAnda->getChave() << ", " << pAnda->getDado() << " ]";
-    cout << pAnda->getChave() <<  " ]";
+    
+    paciente = pAnda->getDado();
+    
+		cout << "Chave: " << pAnda->getChave() << ", ID do Paciente: " << paciente.getId() << " ]";
 	}
 }
 
@@ -91,7 +98,7 @@ void LDL::mostraOrdemDecrescente(){
 
 // Insere um novo elemento na LDL na ordem
 // crescente
-bool LDL::insereOrdemCrescente(int chave, Elemento *dado){
+bool LDL::insereOrdemCrescente(int chave, Paciente *dado){
 	// Cria um novo no
 	No *novoNo = new No(chave, dado, nullptr, nullptr);
 	
@@ -158,7 +165,7 @@ No* LDL::busca(int chave) {
     } 
 }
 
-bool LDL::atualiza(int chave, Elemento *dado) {
+bool LDL::atualiza(int chave, Paciente *dado) {
   if (isEmpty()) {
     return false;
   } else {
