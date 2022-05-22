@@ -76,10 +76,6 @@ void lerDados(LDL *lista){
 		while(getline(file, line)){
       int dadosPaciente[1][12], i = 0;
 			stringstream str(line);
-
-      //getline(str, word, ';');
-
-      //dadosPaciente[0][0] = i+1;
  
 			while(getline(str, word, ';')){
         //int num = stoi(word);
@@ -97,15 +93,6 @@ void lerDados(LDL *lista){
 	else{
     cout << "\n*** ERRO AO LER OS DADOS! Por favor, verifique o arquivo de leitura ***\n";
   }
- 
-	/*for(int i=0;i<content.size();i++)
-	{
-		for(int j=0;j<content[i].size();j++)
-		{
-			cout<<content[i][j]<<" ";
-		}
-		cout<<"\n";
-	}*/
 }
 
 void caso4(Paciente paciente, int *numerosCaso4){
@@ -148,8 +135,7 @@ void caso5(Paciente paciente, int *numerosCaso5){
   }
 }
 
-void analisarCasos(LDL *lista){
-  int numerosCaso4[5] = {0}, numerosCaso5[4] = {0};
+void analisarCasos(LDL *lista, int *numerosCaso4, int *numerosCaso5){
   
   if (lista->getCabeca() == nullptr){
     cout << "Lista vazia!" << endl;
@@ -176,25 +162,27 @@ void analisarCasos(LDL *lista){
 
     //Caso 4
     caso4(paciente, numerosCaso4);
-		imprimirCaso4(numerosCaso4);
 
     //Caso 5
     caso5(paciente, numerosCaso5);
-    imprimirCaso5(numerosCaso5);
 	}
 }
 
 int main(){
   LDL *lista = new LDL();
+  int numerosCaso4[5] = {0}, numerosCaso5[4] = {0};
 
   setlocale( LC_ALL, "" ); //Define os caracteres de saída para o UTF-8
   
   lerDados(lista);
 
-  //Testando a se a lista está correta
-  //lista -> mostraOrdemCrescente();
+  analisarCasos(lista, numerosCaso4, numerosCaso5);
 
-  analisarCasos(lista);
+  //Caso 4
+	imprimirCaso4(numerosCaso4);
+
+  //Caso 5
+  imprimirCaso5(numerosCaso5);
 
   // Faz uma pausa antes de finalizar o programa
 	cout << endl << endl;
