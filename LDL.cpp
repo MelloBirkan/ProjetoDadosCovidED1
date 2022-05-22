@@ -59,6 +59,7 @@ void LDL::mostraOrdemCrescente(){
 	else{
 		cout << "Lista: [ ";
 		No *pAnda = this->cabeca;
+    //Paciente *paciente = pAnda->getDado();
 		while (pAnda->getProx() != this->cabeca){
 			//cout << pAnda->getChave() << ", " << pAnda->getDado() << " | ";
       cout << pAnda->getChave() << " | ";

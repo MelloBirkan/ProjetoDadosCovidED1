@@ -24,31 +24,29 @@ using namespace std;
 void lerDados(LDL *lista){
   string fname = "df_covid.csv";
 	string line, word;
-  int i = 0, dado;
  
 	fstream file (fname, ios::in);
   
 	if(file.is_open()){
 		while(getline(file, line)){
-      int dadosPaciente[1][12];
+      int dadosPaciente[1][12], i = 0;
 			stringstream str(line);
 
       //getline(str, word, ';');
 
-      dadosPaciente[0][0] = i+1;
+      //dadosPaciente[0][0] = i+1;
  
 			while(getline(str, word, ';')){
         //int num = stoi(word);
         //cout << "\nWord: " << num;
         dadosPaciente[0][i] = stoi(word);
+        i = i+1;
       }
 
       //No *novoNo = new No();
       Paciente *novoPaciente = new Paciente(dadosPaciente[0][0], dadosPaciente[0][1], dadosPaciente[0][2], dadosPaciente[0][3], dadosPaciente[0][4], dadosPaciente[0][5], dadosPaciente[0][6], dadosPaciente[0][7], dadosPaciente[0][8], dadosPaciente[0][9], dadosPaciente[0][10], dadosPaciente[0][11]);
 
-      lista -> insereOrdemCrescente(i+1, novoPaciente);
-
-       i++;
+      lista -> insereOrdemCrescente(dadosPaciente[0][0], novoPaciente);
 		}
     
 	}
