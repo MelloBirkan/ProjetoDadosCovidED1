@@ -21,6 +21,27 @@ Referências Bibliográficas:
 
 using namespace std;
 
+void imprimirCaso3(int *numerosCaso3){
+
+  cout << "\n\n--- Caso 3 ---\n";
+
+  cout << "\n\n>> Mulheres <<";
+  
+  //Teste Covid positivo e foi para a UCI
+  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Feminino e vieram a óbto: " << numerosCaso3[0];
+
+  //Teste Covid positivo e não foi para a UCI
+  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Feminino e não vieram a óbto: : " << numerosCaso3[1];
+
+  cout << "\n\n>> Homens <<";
+
+  //Teste Covid negativo e foi para a UCI
+  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Masculino e vieram a óbto: : " << numerosCaso3[2];
+
+  //Teste Covid negativo e não foi para a UCI
+  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Masculino e não vieram a óbto: " << numerosCaso3[3];
+}
+
 void imprimirCaso4(int *numerosCaso4){
 
   cout << "\n\n--- Caso 4 ---\n";
@@ -41,27 +62,6 @@ void imprimirCaso4(int *numerosCaso4){
   cout << "\n\nNúmero de pacientes cujo o dado Teste de Covid ou Internação na UCI é 'Não aplicável'/'Não Disponível': " << numerosCaso4[4];
 
   cout << "\n";
-}
-
-void imprimirCaso5(int *numerosCaso5){
-
-  cout << "\n\n--- Caso 5 ---\n";
-
-  cout << "\n\n>> Mulheres <<";
-  
-  //Teste Covid positivo e foi para a UCI
-  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Feminino e vieram a óbto: " << numerosCaso5[0];
-
-  //Teste Covid positivo e não foi para a UCI
-  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Feminino e não vieram a óbto: : " << numerosCaso5[1];
-
-  cout << "\n\n>> Homens <<";
-
-  //Teste Covid negativo e foi para a UCI
-  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Masculino e vieram a óbto: : " << numerosCaso5[2];
-
-  //Teste Covid negativo e não foi para a UCI
-  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Masculino e não vieram a óbto: " << numerosCaso5[3];
 }
 
 void lerDados(LDL *lista){
@@ -95,6 +95,26 @@ void lerDados(LDL *lista){
   }
 }
 
+void caso3(Paciente paciente, int *numerosCaso3){
+
+  //É fumante
+  if (paciente.getFumante() == 1){
+    if ((paciente.getSexo() == 1) && (paciente.getObito() == 1)){
+      //Mulher e foi a óbtito
+      numerosCaso3[0] = numerosCaso3[0] + 1;
+    } else if ((paciente.getSexo() == 1) && (paciente.getObito() == 0)){
+      //Mulher e não foi a óbtito
+      numerosCaso3[1] = numerosCaso3[1] + 1;
+    } else if ((paciente.getSexo() == 2) && (paciente.getObito() == 1)){
+      //Homem e foi a óbtito
+      numerosCaso3[2] = numerosCaso3[2] + 1;
+    } else{
+      //Homem e não foi a óbtito
+      numerosCaso3[3] = numerosCaso3[3] + 1;
+    }
+  }
+}
+
 void caso4(Paciente paciente, int *numerosCaso4){
   
   if ((paciente.getTesteCovid() == 1) && (paciente.getIcu() == 1)){
@@ -115,27 +135,7 @@ void caso4(Paciente paciente, int *numerosCaso4){
   }
 }
 
-void caso5(Paciente paciente, int *numerosCaso5){
-
-  //É fumante
-  if (paciente.getFumante() == 1){
-    if ((paciente.getSexo() == 1) && (paciente.getObito() == 1)){
-      //Mulher e foi a óbtito
-      numerosCaso5[0] = numerosCaso5[0] + 1;
-    } else if ((paciente.getSexo() == 1) && (paciente.getObito() == 0)){
-      //Mulher e não foi a óbtito
-      numerosCaso5[1] = numerosCaso5[1] + 1;
-    } else if ((paciente.getSexo() == 2) && (paciente.getObito() == 1)){
-      //Homem e foi a óbtito
-      numerosCaso5[2] = numerosCaso5[2] + 1;
-    } else{
-      //Homem e não foi a óbtito
-      numerosCaso5[3] = numerosCaso5[3] + 1;
-    }
-  }
-}
-
-void analisarCasos(LDL *lista, int *numerosCaso4, int *numerosCaso5){
+void analisarCasos(LDL *lista, int *numerosCaso3, int *numerosCaso4 ){
   
   if (lista->getCabeca() == nullptr){
     cout << "Lista vazia!" << endl;
@@ -149,40 +149,41 @@ void analisarCasos(LDL *lista, int *numerosCaso4, int *numerosCaso5){
       
       paciente = pAnda->getDado();
 
+      //Caso 3
+      caso3(paciente, numerosCaso3);
+      
       //Caso 4
       caso4(paciente, numerosCaso4);
-
-      //Caso 5
-      caso5(paciente, numerosCaso5);
       
 			pAnda= pAnda->getProx();
 		}
     
     paciente = pAnda->getDado();
 
+    //Caso 3
+    caso3(paciente, numerosCaso3);
+    
     //Caso 4
     caso4(paciente, numerosCaso4);
 
-    //Caso 5
-    caso5(paciente, numerosCaso5);
 	}
 }
 
 int main(){
   LDL *lista = new LDL();
-  int numerosCaso4[5] = {0}, numerosCaso5[4] = {0};
+  int numerosCaso3[4] = {0}, numerosCaso4[5] = {0};
 
   setlocale( LC_ALL, "" ); //Define os caracteres de saída para o UTF-8
   
   lerDados(lista);
 
-  analisarCasos(lista, numerosCaso4, numerosCaso5);
+  analisarCasos(lista, numerosCaso4, numerosCaso3);
 
+  //Caso 3
+  imprimirCaso3(numerosCaso3);
+  
   //Caso 4
 	imprimirCaso4(numerosCaso4);
-
-  //Caso 5
-  imprimirCaso5(numerosCaso5);
 
   // Faz uma pausa antes de finalizar o programa
 	cout << endl << endl;

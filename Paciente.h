@@ -1,4 +1,4 @@
-/*
+;/*
 ESTRUTURA DE DADOS I [Turma 03O11]
 
 Atividade de Aplicação 2 - Introdução a Data Science com Estruturas de Dados I.
@@ -26,6 +26,7 @@ class Paciente{
     int intubado;
     int diabetes;
     int asma;
+    int hipertensao;
     int cardiovascular;
     int obesidade;
     int fumante;
@@ -36,12 +37,13 @@ class Paciente{
 	public:
 		Paciente(){}
 
-		Paciente(int id, int sexo, int tipo_paciente, int intubado,  int diabetes, int asma, int cardiovascular, int obesidade, int fumante, int teste_covid, int icu, int obito){
+		Paciente(int id, int sexo, int intubado,  int diabetes, int asma,int hipertensao, int cardiovascular, int obesidade, int fumante, int teste_covid, int icu, int obito){
       this -> id = id;
       this -> sexo = sexo;
       this -> intubado = intubado;
       this -> diabetes = diabetes;
       this -> asma = asma;
+      this -> hipertensao = hipertensao;
       this -> cardiovascular = cardiovascular;
       this -> obesidade = obesidade;
       this -> fumante = fumante;
@@ -57,6 +59,7 @@ class Paciente{
 		int getIntubado(){ return intubado; };
 		int getDiabetes(){ return diabetes; };
     int getAsma(){ return asma; };
+    int getHipertensao(){ return hipertensao; };
 		int getCardiovascular(){ return cardiovascular; };
     int getObesidade(){ return obesidade; };
 		int getFumante(){ return fumante; };
@@ -68,6 +71,7 @@ class Paciente{
 		void setIntubado(int intubado){ this->intubado = intubado; };
 		void setDiabetes(int diabetes){ this->diabetes = diabetes; };
 		void setAsma(int asma){ this->asma = asma; };
+    void setHipertensao(int hipertensao){ this->hipertensao = hipertensao; };
 		void setCardiovascular(int cardiovascular){ this->cardiovascular = cardiovascular; };
 		void setObesidade(int obesidade){ this->obesidade = obesidade; };
     void setFumante(int fumante){ this->fumante = fumante; };
