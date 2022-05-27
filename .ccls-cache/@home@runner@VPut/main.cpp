@@ -58,6 +58,24 @@ void imprimirCaso1(int *numerosCaso1){
 
   //Homem e intubação não aplicável
   cout << "\n\nNúmero de pacientes do Sexo Masculino cujo o dado intubação é 'Não aplicável'/'Não Disponível': " << numerosCaso1[9];
+
+  cout << "\n";
+}
+
+void imprimirCaso2(int *numerosCaso2){
+
+  cout << "\n\n--- Caso 2 ---\n";
+  
+  //Era Fumante e Asmático, foi intubado e veio a óbito
+  cout << "\n\nNúmero de pacientes fumantes e asmáticos que foram intubados e vieram a óbto: " << numerosCaso2[0];
+
+  //Era Fumante, foi intubado e veio a óbito
+  cout << "\n\nNúmero de pacientes fumantes que foram intubados e vieram a óbto: " << numerosCaso2[1];
+
+  //Era Asmático, foi intubado e veio a óbito
+  cout << "\n\nNúmero de pacientes asmáticos que foram intubados e vieram a óbto: " << numerosCaso2[2];
+
+  cout << "\n";
 }
 
 void imprimirCaso3(int *numerosCaso3){
@@ -79,6 +97,8 @@ void imprimirCaso3(int *numerosCaso3){
 
   //Teste Covid negativo e não foi para a UCI
   cout << "\n\nNúmero de pacientes fumantes que são do Sexo Masculino e não vieram a óbto: " << numerosCaso3[3];
+
+  cout << "\n";
 }
 
 void imprimirCaso4(int *numerosCaso4){
@@ -163,35 +183,52 @@ void caso1(Paciente paciente, int *numerosCaso1){
     if ((paciente.getIntubado() == 1) && (paciente.getObito() == 1)){
       //Foi intubado e veio a óbtito
       numerosCaso1[0] = numerosCaso1[0] + 1;
-    } else if ((paciente.getIntubado() == 1) && (paciente.getObito() == 2)){
+    } else if ((paciente.getIntubado() == 1) && (paciente.getObito() == 0)){
       //Foi intubado, mas não veio a óbtito
       numerosCaso1[1] = numerosCaso1[1] + 1;
     } else if ((paciente.getIntubado() == 2) && (paciente.getObito() == 1)){
-      //Foi intubado, mas não veio a óbtito
+      //Não foi intubado, mas não veio a óbtito
       numerosCaso1[2] = numerosCaso1[2] + 1;
-    } else if ((paciente.getIntubado() == 2) && (paciente.getObito() == 2)){
-      //Foi intubado, mas não veio a óbtito
+    } else if ((paciente.getIntubado() == 2) && (paciente.getObito() == 0)){
+      //Não foi intubado e não veio a óbtito
       numerosCaso1[3] = numerosCaso1[3] + 1;
-    } else if ((paciente.getIntubado() > 2))){
-      //Foi intubado, mas não veio a óbtito
+    } else if ((paciente.getIntubado() > 2)){
+      //'Não aplicável'/'Não Disponível
       numerosCaso1[4] = numerosCaso1[4] + 1;
     }
   } else{ //Homem
     if ((paciente.getIntubado() == 1) && (paciente.getObito() == 1)){
       //Foi intubado e veio a óbtito
       numerosCaso1[5] = numerosCaso1[5] + 1;
-    } else if ((paciente.getIntubado() == 1) && (paciente.getObito() == 2)){
+    } else if ((paciente.getIntubado() == 1) && (paciente.getObito() == 0)){
       //Foi intubado, mas não veio a óbtito
       numerosCaso1[6] = numerosCaso1[6] + 1;
     } else if ((paciente.getIntubado() == 2) && (paciente.getObito() == 1)){
-      //Foi intubado, mas não veio a óbtito
+      //Não foi intubado, mas não veio a óbtito
       numerosCaso1[7] = numerosCaso1[7] + 1;
-    } else if ((paciente.getIntubado() == 2) && (paciente.getObito() == 2)){
-      //Foi intubado, mas não veio a óbtito
+    } else if ((paciente.getIntubado() == 2) && (paciente.getObito() == 0)){
+      //Não foi intubado, mas não veio a óbtito
       numerosCaso1[8] = numerosCaso1[8] + 1;
-    } else if ((paciente.getIntubado() > 2))){
-      //Foi intubado, mas não veio a óbtito
+    } else if ((paciente.getIntubado() > 2)){
+      //'Não aplicável'/'Não Disponível
       numerosCaso1[9] = numerosCaso1[9] + 1;
+    }
+  }
+}
+
+void caso2(Paciente paciente, int *numerosCaso2){
+
+  //Foi intubado e veio a óbito
+  if ((paciente.getIntubado() == 1) && (paciente.getObito() == 1)){
+    if ((paciente.getFumante() == 1) && (paciente.getAsma() == 1)){
+      //Fumante e asmático
+      numerosCaso2[0] = numerosCaso2[0] + 1;
+    } else if (paciente.getFumante() == 1){
+      //Fumante
+      numerosCaso2[1] = numerosCaso2[1] + 1;
+    } else if (paciente.getAsma() == 1){
+      //Asmático
+      numerosCaso2[2] = numerosCaso2[2] + 1;
     }
   }
 }
@@ -260,7 +297,7 @@ void caso5(Paciente paciente, int *numerosCaso5){
   }
 }
 
-void analisarCasos(LDL *lista, int *numerosCaso1, int *numerosCaso3, int *numerosCaso4, int *numerosCaso5){
+void analisarCasos(LDL *lista, int *numerosCaso1, int *numerosCaso2, int *numerosCaso3, int *numerosCaso4, int *numerosCaso5){
   
   if (lista->getCabeca() == nullptr){
     cout << "Lista vazia!" << endl;
@@ -277,6 +314,9 @@ void analisarCasos(LDL *lista, int *numerosCaso1, int *numerosCaso3, int *numero
       //Caso 1
       caso1(paciente, numerosCaso1);
 
+      //Caso 2
+      caso2(paciente, numerosCaso2);
+      
       //Caso 3
       caso3(paciente, numerosCaso3);
       
@@ -294,6 +334,9 @@ void analisarCasos(LDL *lista, int *numerosCaso1, int *numerosCaso3, int *numero
     //Caso 1
     caso1(paciente, numerosCaso1);
 
+    //Caso 2
+    caso2(paciente, numerosCaso2);
+    
     //Caso 3
     caso3(paciente, numerosCaso3);
     
@@ -308,17 +351,20 @@ void analisarCasos(LDL *lista, int *numerosCaso1, int *numerosCaso3, int *numero
 
 int main(){
   LDL *lista = new LDL();
-  int numerosCaso1[10] = {0}, numerosCaso3[4] = {0}, numerosCaso4[5] = {0}, numerosCaso5[5] = {0};
+  int numerosCaso1[10] = {0}, numerosCaso2[3] = {0}, numerosCaso3[4] = {0}, numerosCaso4[5] = {0}, numerosCaso5[5] = {0};
 
   setlocale( LC_ALL, "" ); //Define os caracteres de saída para o UTF-8
   
   lerDados(lista);
 
-  analisarCasos(lista, numerosCaso1, numerosCaso3, numerosCaso4, numerosCaso5);
+  analisarCasos(lista, numerosCaso1, numerosCaso2, numerosCaso3, numerosCaso4, numerosCaso5);
 
   //Caso 1
   imprimirCaso1(numerosCaso1);
 
+  //Caso 2
+  imprimirCaso2(numerosCaso2);
+  
   //Caso 3
   imprimirCaso3(numerosCaso3);
   
