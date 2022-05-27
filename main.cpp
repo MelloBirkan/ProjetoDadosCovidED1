@@ -21,14 +21,22 @@ Referências Bibliográficas:
 
 using namespace std;
 
-void imprimirMenu(){
-  cout << "\n\n1 - Ler dados";
-  cout << "\n2 - Caso 1";
-  cout << "\n3 - Caso 2";
-  cout << "\n4 - Caso 3";
-  cout << "\n5 - Caso 4";
-  cout << "\n6 - Caso 5";
-  cout << "\n0 - SAIR";
+void imprimirMenu(LDL *lista){
+  
+  if (! lista -> isEmpty()){
+    
+    cout << "\n1 - Caso 1";
+    cout << "\n2 - Caso 2";
+    cout << "\n3 - Caso 3";
+    cout << "\n4 - Caso 4";
+    cout << "\n5 - Caso 5";
+    cout << "\n0 - SAIR";
+  } else{
+    
+    cout << "\n\n1 - Ler dados";
+    cout << "\n0 - SAIR";
+  }
+  
 }
 
 void imprimirCaso1(int *numerosCaso1){
@@ -367,45 +375,53 @@ int main(){
 
   do{
 
-    imprimirMenu();
+    imprimirMenu(lista);
     
     cout << "\n\nDigite o opção desejada do menu: ";
     cin >> opcao;
 
-    switch (opcao){
+    if (lista -> isEmpty()){
+      switch (opcao){
+        case 0:
+          break;
+
+        case 1:
+          lerDados(lista);
+          analisarCasos(lista, numerosCaso1, numerosCaso2, numerosCaso3, numerosCaso4, numerosCaso5);
+          break;
+      }
+    } else{
       
-      case 0:
-        break;
-
-      case 1:
-        lerDados(lista);
-        analisarCasos(lista, numerosCaso1, numerosCaso2, numerosCaso3, numerosCaso4, numerosCaso5);
-        break;
+      switch (opcao){
       
-      case 2:
-        //Caso 1
-        imprimirCaso1(numerosCaso1);
-        break;
-
-      case 3:
-        //Caso 2
-        imprimirCaso2(numerosCaso2);
-        break;
-
-      case 4:
-        //Caso 3
-        imprimirCaso3(numerosCaso3);
-        break;
-
-      case 5:
-        //Caso 4
-	      imprimirCaso4(numerosCaso4);
-        break;
+        case 0:
+          break;
       
-      case 6:
-        //Caso 5
-	      imprimirCaso5(numerosCaso5);
-        break;
+        case 1:
+          //Caso 1
+          imprimirCaso1(numerosCaso1);
+          break;
+
+        case 2:
+          //Caso 2
+          imprimirCaso2(numerosCaso2);
+          break;
+
+        case 3:
+          //Caso 3
+          imprimirCaso3(numerosCaso3);
+          break;
+
+        case 4:
+          //Caso 4
+	        imprimirCaso4(numerosCaso4);
+          break;
+      
+        case 5:
+          //Caso 5
+	        imprimirCaso5(numerosCaso5);
+          break;
+      }
     }
   } while (opcao != 0);
 
