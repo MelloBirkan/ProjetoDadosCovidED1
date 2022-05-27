@@ -31,12 +31,12 @@ void imprimirCaso3(int *numerosCaso3){
   cout << "\n\nNúmero de pacientes fumantes que são do Sexo Feminino e vieram a óbto: " << numerosCaso3[0];
 
   //Teste Covid positivo e não foi para a UCI
-  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Feminino e não vieram a óbto: : " << numerosCaso3[1];
+  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Feminino e não vieram a óbto: " << numerosCaso3[1];
 
   cout << "\n\n>> Homens <<";
 
   //Teste Covid negativo e foi para a UCI
-  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Masculino e vieram a óbto: : " << numerosCaso3[2];
+  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Masculino e vieram a óbto: " << numerosCaso3[2];
 
   //Teste Covid negativo e não foi para a UCI
   cout << "\n\nNúmero de pacientes fumantes que são do Sexo Masculino e não vieram a óbto: " << numerosCaso3[3];
@@ -135,7 +135,7 @@ void caso4(Paciente paciente, int *numerosCaso4){
   }
 }
 
-void analisarCasos(LDL *lista, int *numerosCaso3, int *numerosCaso4 ){
+void analisarCasos(LDL *lista, int *numerosCaso3, int *numerosCaso4){
   
   if (lista->getCabeca() == nullptr){
     cout << "Lista vazia!" << endl;
@@ -177,7 +177,7 @@ int main(){
   
   lerDados(lista);
 
-  analisarCasos(lista, numerosCaso4, numerosCaso3);
+  analisarCasos(lista, numerosCaso3, numerosCaso4);
 
   //Caso 3
   imprimirCaso3(numerosCaso3);
