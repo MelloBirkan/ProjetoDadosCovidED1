@@ -21,6 +21,16 @@ Referências Bibliográficas:
 
 using namespace std;
 
+void imprimirMenu(){
+  cout << "\n\n1 - Ler dados";
+  cout << "\n2 - Caso 1";
+  cout << "\n3 - Caso 2";
+  cout << "\n4 - Caso 3";
+  cout << "\n5 - Caso 4";
+  cout << "\n6 - Caso 5";
+  cout << "\n0 - SAIR";
+}
+
 void imprimirCaso1(int *numerosCaso1){
 
   cout << "\n\n--- Caso 1 ---\n";
@@ -351,28 +361,53 @@ void analisarCasos(LDL *lista, int *numerosCaso1, int *numerosCaso2, int *numero
 
 int main(){
   LDL *lista = new LDL();
-  int numerosCaso1[10] = {0}, numerosCaso2[3] = {0}, numerosCaso3[4] = {0}, numerosCaso4[5] = {0}, numerosCaso5[5] = {0};
+  int numerosCaso1[10] = {0}, numerosCaso2[3] = {0}, numerosCaso3[4] = {0}, numerosCaso4[5] = {0}, numerosCaso5[5] = {0}, opcao;
 
   setlocale( LC_ALL, "" ); //Define os caracteres de saída para o UTF-8
-  
-  lerDados(lista);
 
-  analisarCasos(lista, numerosCaso1, numerosCaso2, numerosCaso3, numerosCaso4, numerosCaso5);
+  do{
 
-  //Caso 1
-  imprimirCaso1(numerosCaso1);
+    imprimirMenu();
+    
+    cout << "\n\nDigite o opção desejada do menu: ";
+    cin >> opcao;
 
-  //Caso 2
-  imprimirCaso2(numerosCaso2);
-  
-  //Caso 3
-  imprimirCaso3(numerosCaso3);
-  
-  //Caso 4
-	imprimirCaso4(numerosCaso4);
+    switch (opcao){
+      
+      case 0:
+        break;
 
-  //Caso 5
-	imprimirCaso5(numerosCaso5);
+      case 1:
+        lerDados(lista);
+        analisarCasos(lista, numerosCaso1, numerosCaso2, numerosCaso3, numerosCaso4, numerosCaso5);
+        break;
+      
+      case 2:
+        //Caso 1
+        imprimirCaso1(numerosCaso1);
+        break;
+
+      case 3:
+        //Caso 2
+        imprimirCaso2(numerosCaso2);
+        break;
+
+      case 4:
+        //Caso 3
+        imprimirCaso3(numerosCaso3);
+        break;
+
+      case 5:
+        //Caso 4
+	      imprimirCaso4(numerosCaso4);
+        break;
+      
+      case 6:
+        //Caso 5
+	      imprimirCaso5(numerosCaso5);
+        break;
+    }
+  } while (opcao != 0);
 
   // Faz uma pausa antes de finalizar o programa
 	cout << endl << endl;
