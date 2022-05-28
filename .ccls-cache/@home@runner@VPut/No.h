@@ -23,10 +23,10 @@ SZWARCFITER, J.L.; MARKENZON, L. Estruturas de Dados e seus Algoritmos, 3ª Ed. 
 
 using namespace std;
 
-// Elemento do tipo inteiro a ser inserido no n� da LDL 
+// Elemento do tipo inteiro a ser inserido no nó da LDL 
 //typedef Paciente Elemento;
 
-// Classe N� da lista duplamente encadeada
+// Classe Nó da lista duplamente encadeada
 class No {
 	private:
 		int chave;

@@ -27,7 +27,7 @@ class LDL{
 		int qtde;
 	public:
 		LDL();
-		~LDL() {};// Exerc�cio
+		~LDL() {};// Exercicio
 		void setCabeca(No *cabeca){ this->cabeca = cabeca;	};
 		No *getCabeca(){ return cabeca; };
 		int getQtde(){ return qtde;	};

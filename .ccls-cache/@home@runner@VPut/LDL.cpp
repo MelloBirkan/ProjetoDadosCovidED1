@@ -21,13 +21,13 @@ SZWARCFITER, J.L.; MARKENZON, L. Estruturas de Dados e seus Algoritmos, 3ª Ed. 
 #include "LDL.h"
 
 // Construtor vazio
-// inicia o cabe�a da lista como null
+// inicia o cabeça da lista como null
 LDL::LDL(){
 	this->cabeca = nullptr;
 	this->qtde = 0;
 }
 
-bool LDL::isEmpty() { // Verifica se lDL est� vazia
+bool LDL::isEmpty() { // Verifica se lDL está vazia
 	if (this->cabeca == nullptr) {
 		return true; 
 	} else {
@@ -44,7 +44,7 @@ bool LDL::isEmptyLista(No *cabeca) {
 }
 
 
-bool LDL::isFull(){ // verifica se alista est� cheia
+bool LDL::isFull(){ // verifica se alista está cheia
 	No *aux = new No();
 	
 	if (aux == nullptr) return true;
@@ -114,24 +114,24 @@ bool LDL::insereOrdemCrescente(int chave, Paciente *dado){
 	
 	if (isFull()) return false;
 
-	// se lista vazia, insere o n� no ponteiro cabe�a
-	// e faz o n� apontar para ele mesmo
+	// se lista vazia, insere o nó no ponteiro cabeça
+	// e faz o nó apontar para ele mesmo
 	if (cabeca == nullptr) {
 		this->cabeca = novoNo;
 		novoNo->setProx(novoNo);
 		novoNo->setAnt(novoNo);
 	} else { 
-	    // Caso contr�rio, procura posi�o de inser�o
+	    // Caso contrário, procura posição de inserção
 	    // na ordem crescente de valores
 		No *pAnda = this->cabeca, *pAnt = nullptr;
 		while (pAnda->getProx() != cabeca && pAnda->getChave() < chave){
 				pAnt = pAnda;
 				pAnda = pAnda->getProx();
 		}	
-		// Se n�o andou na lista e a chave que pAnda aponta
-	    // � maior que a chave a ser inserida, significa que a chave
-		// a ser inserida antes do cabe�a
-		// e cabe�a precisa ser redefinido
+		// Se não andou na lista e a chave que pAnda aponta
+	    // É maior que a chave a ser inserida, significa que a chave
+		// a ser inserida antes do cabeça
+		// e cabeça precisa ser redefinido
 		if (pAnt == nullptr && pAnda->getChave() > chave){
 			novoNo->setAnt(this->cabeca->getAnt());
 			this->cabeca->getAnt()->setProx(novoNo);
@@ -141,7 +141,7 @@ bool LDL::insereOrdemCrescente(int chave, Paciente *dado){
 		} else {
 			// Caso pAnda tenha caminhado na lista e
 			// a chave que o pAnda aponta maior do que a chave a ser inserido
-			// insere o n� depois do ponteiro anterior pAnt
+			// insere o nó depois do ponteiro anterior pAnt
 		 	if (pAnda->getChave() > chave && pAnt != nullptr) {	 
 				pAnt->getProx()->setAnt(novoNo);
 				novoNo->setProx(pAnda);

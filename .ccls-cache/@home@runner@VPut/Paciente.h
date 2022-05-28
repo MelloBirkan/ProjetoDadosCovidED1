@@ -21,7 +21,7 @@ SZWARCFITER, J.L.; MARKENZON, L. Estruturas de Dados e seus Algoritmos, 3ª Ed. 
 
 using namespace std;
 
-// Classe N� da lista duplamente encadeada
+// Classe Paciente
 class Paciente{
 	private:
 		int id;
