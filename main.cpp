@@ -3,7 +3,7 @@ ESTRUTURA DE DADOS I [Turma 03O11]
 
 Atividade de Aplicação 2 - Introdução a Data Science com Estruturas de Dados I.
 
-Nome: Caio Sampaio Oliveira, TIA: 32195621.
+Nome: Caio Sampaio Oliveira. TIA: 32195621.
 Nome: Gabriel Montes Chagas. TIA: 32162243.
 Nome: Guilherme Picoli Rodrigues. TIA: 32147317.
 Nome: Leonardo Henrique de Oliveira Matos. TIA: 32139561.
@@ -41,21 +41,21 @@ void imprimirMenu(LDL *lista){
 
 void imprimirCaso1(int *numerosCaso1){
 
-  cout << "\n\n--- Caso 1 ---\n";
+  cout << "\n\n--- Caso 1: Qual a relação entre intubação e óbito, em cada sexo? ---\n";
 
   cout << "\n\n>> Mulheres <<";
   
   //Mulher, intubado e veio a óbto
-  cout << "\n\nNúmero de pacientes intubados que são do Sexo Feminino e vieram a óbto: " << numerosCaso1[0];
+  cout << "\n\nNúmero de pacientes entubados que são do Sexo Feminino e vieram a óbito: " << numerosCaso1[0];
 
   //Mulher, intubado e não veio a óbto
-  cout << "\n\nNúmero de pacientes intubados que são do Sexo Feminino e não vieram a óbto: " << numerosCaso1[1];
+  cout << "\n\nNúmero de pacientes entubados que são do Sexo Feminino e não vieram a óbito: " << numerosCaso1[1];
 
   //Mulher, não intubado e veio a óbto
-  cout << "\n\nNúmero de pacientes não intubados que são do Sexo Feminino e vieram a óbto: " << numerosCaso1[2];
+  cout << "\n\nNúmero de pacientes não entubados que são do Sexo Feminino e vieram a óbito: " << numerosCaso1[2];
 
   //Mulher, não intubado e não veio a óbto
-  cout << "\n\nNúmero de pacientes não intubados que são do Sexo Feminino e não vieram a óbto: " << numerosCaso1[3];
+  cout << "\n\nNúmero de pacientes não entubados que são do Sexo Feminino e não vieram a óbito: " << numerosCaso1[3];
 
   //Mulher e intubação não aplicável
   cout << "\n\nNúmero de pacientes do Sexo Feminino cujo o dado intubação é 'Não aplicável'/'Não Disponível': " << numerosCaso1[4];
@@ -63,16 +63,16 @@ void imprimirCaso1(int *numerosCaso1){
   cout << "\n\n>> Homens <<";
 
   //Homem, intubado e veio a óbto
-  cout << "\n\nNúmero de pacientes intubados que são do Sexo Masculino e vieram a óbto: " << numerosCaso1[5];
+  cout << "\n\nNúmero de pacientes entubados que são do Sexo Masculino e vieram a óbito: " << numerosCaso1[5];
 
   //Homem, intubado e veio a óbto
-  cout << "\n\nNúmero de pacientes intubados que são do Sexo Masculino e não vieram a óbto: " << numerosCaso1[6];
+  cout << "\n\nNúmero de pacientes entubados que são do Sexo Masculino e não vieram a óbito: " << numerosCaso1[6];
 
   //Homem, não intubado e veio a óbto
-  cout << "\n\nNúmero de pacientes não intubados que são do Sexo Masculino e vieram a óbto: " << numerosCaso1[7];
+  cout << "\n\nNúmero de pacientes não entubados que são do Sexo Masculino e vieram a óbito: " << numerosCaso1[7];
 
   //Homem, não intubado e não veio a óbto
-  cout << "\n\nNúmero de pacientes não intubados que são do Sexo Masculino e não vieram a óbto: " << numerosCaso1[8];
+  cout << "\n\nNúmero de pacientes não entubados que são do Sexo Masculino e não vieram a óbito: " << numerosCaso1[8];
 
   //Homem e intubação não aplicável
   cout << "\n\nNúmero de pacientes do Sexo Masculino cujo o dado intubação é 'Não aplicável'/'Não Disponível': " << numerosCaso1[9];
@@ -82,46 +82,46 @@ void imprimirCaso1(int *numerosCaso1){
 
 void imprimirCaso2(int *numerosCaso2){
 
-  cout << "\n\n--- Caso 2 ---\n";
+  cout << "\n\n--- Caso 2: Qual a relação entre óbito, tabagismo e asma? ---\n";
   
   //Era Fumante e Asmático, foi intubado e veio a óbito
-  cout << "\n\nNúmero de pacientes fumantes e asmáticos que foram intubados e vieram a óbto: " << numerosCaso2[0];
+  cout << "\n\nNúmero de pacientes fumantes e asmáticos que foram intubados e vieram a óbito: " << numerosCaso2[0];
 
   //Era Fumante, foi intubado e veio a óbito
-  cout << "\n\nNúmero de pacientes fumantes que foram intubados e vieram a óbto: " << numerosCaso2[1];
+  cout << "\n\nNúmero de pacientes fumantes que foram intubados e vieram a óbito: " << numerosCaso2[1];
 
   //Era Asmático, foi intubado e veio a óbito
-  cout << "\n\nNúmero de pacientes asmáticos que foram intubados e vieram a óbto: " << numerosCaso2[2];
+  cout << "\n\nNúmero de pacientes asmáticos que foram intubados e vieram a óbito: " << numerosCaso2[2];
 
   cout << "\n";
 }
 
 void imprimirCaso3(int *numerosCaso3){
 
-  cout << "\n\n--- Caso 3 ---\n";
+  cout << "\n\n--- Caso 3: Qual a relação entre ultima o tabagismo e óbito, por sexo? ---\n";
 
   cout << "\n\n>> Mulheres <<";
   
   //Teste Covid positivo e foi para a UCI
-  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Feminino e vieram a óbto: " << numerosCaso3[0];
+  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Feminino e vieram a óbito: " << numerosCaso3[0];
 
   //Teste Covid positivo e não foi para a UCI
-  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Feminino e não vieram a óbto: " << numerosCaso3[1];
+  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Feminino e não vieram a óbito: " << numerosCaso3[1];
 
   cout << "\n\n>> Homens <<";
 
   //Teste Covid negativo e foi para a UCI
-  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Masculino e vieram a óbto: " << numerosCaso3[2];
+  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Masculino e vieram a óbito: " << numerosCaso3[2];
 
   //Teste Covid negativo e não foi para a UCI
-  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Masculino e não vieram a óbto: " << numerosCaso3[3];
+  cout << "\n\nNúmero de pacientes fumantes que são do Sexo Masculino e não vieram a óbito: " << numerosCaso3[3];
 
   cout << "\n";
 }
 
 void imprimirCaso4(int *numerosCaso4){
 
-  cout << "\n\n--- Caso 4 ---\n";
+  cout << "\n\n--- Caso 4: Qual a relação entre o Teste de Covid e a internações na UCI? ---\n";
   
   //Teste Covid positivo e foi para a UCI
   cout << "\n\nNúmero de pacientes cujo o Teste de Covid deu positivo e foram internados na UCI: " << numerosCaso4[0];
@@ -143,7 +143,7 @@ void imprimirCaso4(int *numerosCaso4){
 
 void imprimirCaso5(int *numerosCaso5){
 
-  cout << "\n\n--- Caso 5 ---\n";
+  cout << "\n\n--- Caso 5: Qual o número total, entre os pacientes registrados, das cinco doenças mais populares? ---\n";
   
   //Teste Covid positivo e foi para a UCI
   cout << "\n\nNúmero de pacientes com Obsidade: " << numerosCaso5[0];
@@ -377,7 +377,7 @@ int main(){
 
     imprimirMenu(lista);
     
-    cout << "\n\nDigite o opção desejada do menu: ";
+    cout << "\n\nDigite a opção desejada do menu: ";
     cin >> opcao;
 
     if (lista -> isEmpty()){

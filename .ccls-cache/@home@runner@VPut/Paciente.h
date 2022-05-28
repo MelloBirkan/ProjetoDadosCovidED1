@@ -3,7 +3,7 @@ ESTRUTURA DE DADOS I [Turma 03O11]
 
 Atividade de Aplicação 2 - Introdução a Data Science com Estruturas de Dados I.
 
-Nome: Caio Sampaio Oliveira, TIA: 32195621.
+Nome: Caio Sampaio Oliveira. TIA: 32195621.
 Nome: Gabriel Montes Chagas. TIA: 32162243.
 Nome: Guilherme Picoli Rodrigues. TIA: 32147317.
 Nome: Leonardo Henrique de Oliveira Matos. TIA: 32139561.
