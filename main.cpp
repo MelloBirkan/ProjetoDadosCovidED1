@@ -11,6 +11,9 @@ Nome: Marcello Gonzatto Birkan. TIA: 42020034.
 
 Referências Bibliográficas:
 
+SZWARCFITER, J.L.; MARKENZON, L. Estruturas de Dados e seus Algoritmos, 3ª Ed. Rio de Janeiro: LTC, 2010.
+
+ÜNAL, Yavuz; DUDAK, Muhammed Nuri. Classification of Covid-19 Dataset with Some Machine Learning Methods. Journal of Amasya University the Institute of Sciences and Technology, Turquia, v. 1, n. 1, p. 30-37, jul. de 2020. Disponível em: <https://dergipark.org.tr/en/pub/jauist/issue/55760/748667>. Acesso em: 07 de Maio de 2022.
 */
 
 #include <iostream>
@@ -21,8 +24,12 @@ Referências Bibliográficas:
 
 using namespace std;
 
+/* ----- FUNÇÕES AUXILIARES ----- */
+
+// Imprime os menus
 void imprimirMenu(LDL *lista){
-  
+
+  //Verifica se a lista não está vazia
   if (! lista -> isEmpty()){
     
     cout << "\n1 - Caso 1";
@@ -39,6 +46,7 @@ void imprimirMenu(LDL *lista){
   
 }
 
+// Imprime a análise do Caso 1
 void imprimirCaso1(int *numerosCaso1){
 
   cout << "\n\n--- Caso 1: Qual a relação entre intubação e óbito, em cada sexo? ---\n";
@@ -46,16 +54,16 @@ void imprimirCaso1(int *numerosCaso1){
   cout << "\n\n>> Mulheres <<";
   
   //Mulher, intubado e veio a óbto
-  cout << "\n\nNúmero de pacientes entubados que são do Sexo Feminino e vieram a óbito: " << numerosCaso1[0];
+  cout << "\n\nNúmero de pacientes intubados que são do Sexo Feminino e vieram a óbito: " << numerosCaso1[0];
 
   //Mulher, intubado e não veio a óbto
-  cout << "\n\nNúmero de pacientes entubados que são do Sexo Feminino e não vieram a óbito: " << numerosCaso1[1];
+  cout << "\n\nNúmero de pacientes intubados que são do Sexo Feminino e não vieram a óbito: " << numerosCaso1[1];
 
   //Mulher, não intubado e veio a óbto
-  cout << "\n\nNúmero de pacientes não entubados que são do Sexo Feminino e vieram a óbito: " << numerosCaso1[2];
+  cout << "\n\nNúmero de pacientes não intubados que são do Sexo Feminino e vieram a óbito: " << numerosCaso1[2];
 
   //Mulher, não intubado e não veio a óbto
-  cout << "\n\nNúmero de pacientes não entubados que são do Sexo Feminino e não vieram a óbito: " << numerosCaso1[3];
+  cout << "\n\nNúmero de pacientes não intubados que são do Sexo Feminino e não vieram a óbito: " << numerosCaso1[3];
 
   //Mulher e intubação não aplicável
   cout << "\n\nNúmero de pacientes do Sexo Feminino cujo o dado intubação é 'Não aplicável'/'Não Disponível': " << numerosCaso1[4];
@@ -63,16 +71,16 @@ void imprimirCaso1(int *numerosCaso1){
   cout << "\n\n>> Homens <<";
 
   //Homem, intubado e veio a óbto
-  cout << "\n\nNúmero de pacientes entubados que são do Sexo Masculino e vieram a óbito: " << numerosCaso1[5];
+  cout << "\n\nNúmero de pacientes intubados que são do Sexo Masculino e vieram a óbito: " << numerosCaso1[5];
 
   //Homem, intubado e veio a óbto
-  cout << "\n\nNúmero de pacientes entubados que são do Sexo Masculino e não vieram a óbito: " << numerosCaso1[6];
+  cout << "\n\nNúmero de pacientes intubados que são do Sexo Masculino e não vieram a óbito: " << numerosCaso1[6];
 
   //Homem, não intubado e veio a óbto
-  cout << "\n\nNúmero de pacientes não entubados que são do Sexo Masculino e vieram a óbito: " << numerosCaso1[7];
+  cout << "\n\nNúmero de pacientes não intubados que são do Sexo Masculino e vieram a óbito: " << numerosCaso1[7];
 
   //Homem, não intubado e não veio a óbto
-  cout << "\n\nNúmero de pacientes não entubados que são do Sexo Masculino e não vieram a óbito: " << numerosCaso1[8];
+  cout << "\n\nNúmero de pacientes não intubados que são do Sexo Masculino e não vieram a óbito: " << numerosCaso1[8];
 
   //Homem e intubação não aplicável
   cout << "\n\nNúmero de pacientes do Sexo Masculino cujo o dado intubação é 'Não aplicável'/'Não Disponível': " << numerosCaso1[9];
@@ -80,6 +88,7 @@ void imprimirCaso1(int *numerosCaso1){
   cout << "\n";
 }
 
+// Imprime a análise do Caso 2
 void imprimirCaso2(int *numerosCaso2){
 
   cout << "\n\n--- Caso 2: Qual a relação entre óbito, tabagismo e asma? ---\n";
@@ -96,6 +105,7 @@ void imprimirCaso2(int *numerosCaso2){
   cout << "\n";
 }
 
+// Imprime a análise do Caso 3
 void imprimirCaso3(int *numerosCaso3){
 
   cout << "\n\n--- Caso 3: Qual a relação entre ultima o tabagismo e óbito, por sexo? ---\n";
@@ -119,6 +129,7 @@ void imprimirCaso3(int *numerosCaso3){
   cout << "\n";
 }
 
+// Imprime a análise do Caso 4
 void imprimirCaso4(int *numerosCaso4){
 
   cout << "\n\n--- Caso 4: Qual a relação entre o Teste de Covid e a internações na UCI? ---\n";
@@ -141,18 +152,19 @@ void imprimirCaso4(int *numerosCaso4){
   cout << "\n";
 }
 
+// Imprime a análise do Caso 5
 void imprimirCaso5(int *numerosCaso5){
 
   cout << "\n\n--- Caso 5: Qual o número total, entre os pacientes registrados, das cinco doenças mais populares? ---\n";
   
   //Teste Covid positivo e foi para a UCI
-  cout << "\n\nNúmero de pacientes com Obsidade: " << numerosCaso5[0];
+  cout << "\n\nNúmero de pacientes com Obesidade: " << numerosCaso5[0];
 
   //Teste Covid positivo e não foi para a UCI
   cout << "\n\nNúmero de pacientes com Diabetes: " << numerosCaso5[1];
 
   //Teste Covid negativo e foi para a UCI
-  cout << "\n\nNúmero de pacientes com Doenças Cardiacas: " << numerosCaso5[2];
+  cout << "\n\nNúmero de pacientes com Doenças Cardíacas: " << numerosCaso5[2];
 
   //Teste Covid negativo e não foi para a UCI
   cout << "\n\nNúmero de pacientes com Asma: " << numerosCaso5[3];
@@ -163,6 +175,9 @@ void imprimirCaso5(int *numerosCaso5){
   cout << "\n";
 }
 
+/* ----- FUNÇÕES PRINCIPAIS ----- */
+
+// Lê os dados do arquivo df_covid.csv
 void lerDados(LDL *lista){
   string fname = "df_covid.csv";
 	string line, word;
@@ -194,6 +209,7 @@ void lerDados(LDL *lista){
   }
 }
 
+// Análise específica do Caso 1
 void caso1(Paciente paciente, int *numerosCaso1){
 
   //Mulher
@@ -234,6 +250,7 @@ void caso1(Paciente paciente, int *numerosCaso1){
   }
 }
 
+// Análise específica do Caso 2
 void caso2(Paciente paciente, int *numerosCaso2){
 
   //Foi intubado e veio a óbito
@@ -251,6 +268,7 @@ void caso2(Paciente paciente, int *numerosCaso2){
   }
 }
 
+// Análise específica do Caso 3
 void caso3(Paciente paciente, int *numerosCaso3){
 
   //É Fumante
@@ -271,6 +289,7 @@ void caso3(Paciente paciente, int *numerosCaso3){
   }
 }
 
+// Análise específica do Caso 4
 void caso4(Paciente paciente, int *numerosCaso4){
   
   if ((paciente.getTesteCovid() == 1) && (paciente.getIcu() == 1)){
@@ -291,6 +310,7 @@ void caso4(Paciente paciente, int *numerosCaso4){
   }
 }
 
+// Análise específica do Caso 5
 void caso5(Paciente paciente, int *numerosCaso5){
   
   if ((paciente.getObesidade() == 1)){
@@ -315,6 +335,7 @@ void caso5(Paciente paciente, int *numerosCaso5){
   }
 }
 
+// Análise de todos os Casos
 void analisarCasos(LDL *lista, int *numerosCaso1, int *numerosCaso2, int *numerosCaso3, int *numerosCaso4, int *numerosCaso5){
   
   if (lista->getCabeca() == nullptr){
@@ -367,6 +388,9 @@ void analisarCasos(LDL *lista, int *numerosCaso1, int *numerosCaso2, int *numero
 	}
 }
 
+/* ----- MAIN ----- */
+
+// Programa Principal
 int main(){
   LDL *lista = new LDL();
   int numerosCaso1[10] = {0}, numerosCaso2[3] = {0}, numerosCaso3[4] = {0}, numerosCaso4[5] = {0}, numerosCaso5[5] = {0}, opcao;
@@ -380,7 +404,9 @@ int main(){
     cout << "\n\nDigite a opção desejada do menu: ";
     cin >> opcao;
 
+    //Verifica se a lista está vazia
     if (lista -> isEmpty()){
+      //Menu quando a lista está vazia
       switch (opcao){
         case 0:
           break;
@@ -391,7 +417,7 @@ int main(){
           break;
       }
     } else{
-      
+      //Menu quando a lista não está vazia
       switch (opcao){
       
         case 0:
